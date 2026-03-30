@@ -2,277 +2,617 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="GreenLeaf - Modern plant-based dining in Bristol. Sustainable, seasonal and 100% vegan.">
-  <title>GreenLeaf | Plant-Powered Living</title>
+  <title>GreenLeaf | Plant-Powered Living — Modern Vegan Kitchen</title>
 
-  <!-- BOOTSTRAP 5 CSS (CSS Framework Requirement) -->
+  <!-- Bootstrap 5 CSS Framework (required by brief) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   
-  <!-- SWIPERJS CSS (JavaScript Framework Requirement) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Google Fonts: Warm, human-friendly serif + clean sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ===== ORGANIC, HUMAN-CENTERED DESIGN ===== 
+       Earthy palette, genuine restaurant feel.
+       Custom styles override Bootstrap where needed.
+    */
+    :root {
+      --forest: #2A5C3E;
+      --moss: #4A7C59;
+      --cream: #FDF9F2;
+      --sand: #E8E0D5;
+      --warm-gray: #4A4A4A;
+      --soft-black: #2D2A26;
+      --gold-soft: #C9A87C;
+    }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!-- Your Custom CSS (overrides Bootstrap where needed) -->
-  <link rel="stylesheet" href="style.css">
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--cream);
+      color: var(--soft-black);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* Typography that feels human and readable */
+    h1, h2, h3, .logo-text {
+      font-family: 'Libre Baskerville', serif;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--forest);
+      font-weight: 400;
+    }
+
+    .container-custom {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* === NAVBAR === */
+    .navbar {
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 0.5rem 0;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar-brand img {
+      height: 42px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.4rem;
+      color: var(--forest);
+      font-weight: 400;
+    }
+
+    .nav-link {
+      color: var(--warm-gray) !important;
+      font-weight: 450;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--forest) !important;
+    }
+
+    .btn-nav {
+      background: var(--forest);
+      color: white !important;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+    }
+
+    .btn-nav:hover {
+      background: #1e4630;
+      color: white !important;
+    }
+
+    /* === HERO === */
+    .hero {
+      min-height: 85vh;
+      background: linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2)), 
+                  url('photos/sonny-mauricio.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-top: 56px;
+      padding: 2rem;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      background: rgba(255, 255, 245, 0.85);
+      padding: 2.5rem;
+      border-radius: 24px;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--forest);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #2c2c2c;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn-primary {
+      background: var(--forest);
+      color: white;
+      padding: 0.7rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      transition: background 0.2s;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #1e4630;
+      color: white;
+    }
+
+    /* === SECTIONS === */
+    .section {
+      padding: 4rem 0;
+    }
+
+    /* === MENU GRID === */
+    .card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f0ebe4;
+      height: 100%;
+    }
+
+    .card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.3rem;
+    }
+
+    .card-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+      color: var(--forest);
+      font-weight: 400;
+    }
+
+    .price {
+      font-weight: 600;
+      color: var(--gold-soft);
+      font-size: 1.1rem;
+      margin: 0.25rem 0;
+    }
+
+    .dish-desc {
+      font-size: 0.85rem;
+      color: #6a685e;
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+
+    .dietary-note {
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      color: #9b8e7c;
+    }
+
+    .allergy-legend {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #6f6a60;
+      margin-bottom: 2rem;
+    }
+
+    /* === BRAND SECTION === */
+    .brand-story {
+      background: var(--sand);
+      border-radius: 28px;
+      padding: 2.5rem;
+    }
+
+    .brand-text {
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #3e3c36;
+    }
+
+    .brand-text p {
+      margin-bottom: 1rem;
+    }
+
+    .simple-image-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .simple-image-row img {
+      width: 220px;
+      height: auto;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    /* === ABOUT SECTION === */
+    .about-img {
+      border-radius: 24px;
+      width: 100%;
+      object-fit: cover;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    /* === CONTACT SECTION === */
+    .contact-section {
+      background-color: #F4F0E9;
+      border-radius: 28px;
+      padding: 2.5rem 2rem;
+    }
+
+    .newsletter input {
+      padding: 0.9rem 1.2rem;
+      border-radius: 60px;
+      border: 1px solid #ddd4c8;
+      background: white;
+      width: 260px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .newsletter button {
+      background: var(--forest);
+      color: white;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s;
+    }
+
+    .newsletter button:hover {
+      background: #2f6a48;
+    }
+
+    .contact-details {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #5c5850;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background: var(--forest);
+      color: #e2dfd7;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero-content {
+        padding: 1.5rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .card img {
+        height: 180px;
+      }
+      .simple-image-row img {
+        width: 160px;
+      }
+      .newsletter input {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero {
+        margin-top: 70px;
+      }
+    }
+
+    /* Scroll reveal */
+    .section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
 
-<!-- BOOTSTRAP NAVBAR (Replaces custom navbar - fully responsive) -->
+<!-- NAVBAR using Bootstrap classes -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="photos/logo/greenleaf_logo.png" alt="GreenLeaf Logo" height="45" class="me-2">
+    <a class="navbar-brand" href="#home">
+      <img src="photos/logo/greenleaf_logo.png" alt="GreenLeaf logo" onerror="this.src='https://placehold.co/50x50?text=GL'">
       <span class="logo-text">GreenLeaf</span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#recipes">Menu</a></li>
-        <li class="nav-item"><a class="nav-link" href="#ads">Brand</a></li>
+        <li class="nav-item"><a class="nav-link" href="#story">Our Story</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="map.html">Location</a></li>
-        <li class="nav-item"><a class="nav-link btn-nav" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="map.html">Visit</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav" href="#contact">Reserve</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- HERO SECTION (Unchanged - keeps your design) -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <h1>Nourish Your Body,<br>Respect the Planet</h1>
-    <p>Delicious plant-based recipes and sustainable living inspiration.</p>
-    <a href="#recipes" class="btn-primary">Explore Menu</a>
-  </div>
-</section>
-
-<!-- MENU SECTION WITH SWIPERJS CAROUSEL (Interactive JS Framework) -->
-<section class="section" id="recipes">
-  <div class="container">
-    <h2 class="section-title">Signature Dishes</h2>
-
-    <div class="allergy-legend">
-      <p><strong>Dietary Key:</strong> 🌱 Vegan | 🌾 Gluten-Free | 🥛 Soy</p>
+<main>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Real food,<br>grown with care</h1>
+      <p>Seasonal vegan cooking from the heart of Bristol. Simple, honest, delicious.</p>
+      <a href="#recipes" class="btn-primary">See what's cooking →</a>
     </div>
+  </section>
 
-    <!-- SwiperJS Carousel - Interactive Menu Display -->
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        
-        <!-- Dish 1 -->
-        <div class="swiper-slide">
-          <div class="card h-100">
-            <img src="photos/anna-pelzer.jpg" class="card-img-top" alt="Avocado Toast Deluxe">
+  <!-- MENU SECTION -->
+  <section class="section" id="recipes">
+    <div class="container-custom">
+      <h2 class="section-title">Today's menu</h2>
+      <div class="allergy-legend">🌱 all plants · 🌾 gluten-free options available</div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img src="photos/anna-pelzer.jpg" alt="Avocado toast" onerror="this.src='https://placehold.co/400x280?text=fresh+food'">
             <div class="card-content">
-              <h3>Avocado Toast Deluxe</h3>
-              <p class="price">£8.50</p>
-              <p>Fresh sourdough, smashed avocado, radish & microgreens.</p>
-              <p class="tags">🌱 Vegan | 🥛 Soy</p>
+              <h3>Avocado on sourdough</h3>
+              <div class="price">£8.50</div>
+              <div class="dish-desc">Smashed avocado, radish, lime, chilli flakes.</div>
+              <div class="dietary-note">🌱 vegan · soy-free</div>
             </div>
           </div>
         </div>
-
-        <!-- Dish 2 -->
-        <div class="swiper-slide">
-          <div class="card h-100">
-            <img src="photos/ella-olsson.jpg" class="card-img-top" alt="Rainbow Sandwich">
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img src="photos/ella-olsson.jpg" alt="Rainbow bowl" onerror="this.src='https://placehold.co/400x280?text=seasonal'">
             <div class="card-content">
-              <h3>Rainbow Sandwich</h3>
-              <p class="price">£7.95</p>
-              <p>Hummus, roasted vegetables & fresh herbs.</p>
-              <p class="tags">🌱 Vegan | 🌾 Gluten-Free Option</p>
+              <h3>Rainbow harvest bowl</h3>
+              <div class="price">£7.95</div>
+              <div class="dish-desc">Hummus, roasted veg, fresh herbs & seeds.</div>
+              <div class="dietary-note">🌱 vegan · gluten-free option</div>
             </div>
           </div>
         </div>
-
-        <!-- Dish 3 -->
-        <div class="swiper-slide">
-          <div class="card h-100">
-            <img src="photos/sonny-mauricio.jpg" class="card-img-top" alt="Power Bowl">
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img src="photos/sonny-mauricio.jpg" alt="Power bowl" onerror="this.src='https://placehold.co/400x280?text=green+meal'">
             <div class="card-content">
-              <h3>Power Bowl</h3>
-              <p class="price">£10.95</p>
-              <p>Quinoa, greens, tahini dressing & seasonal vegetables.</p>
-              <p class="tags">🌱 Vegan | 🌾 Gluten-Free</p>
+              <h3>Green power bowl</h3>
+              <div class="price">£10.95</div>
+              <div class="dish-desc">Quinoa, kale, tahini, avocado, hemp seeds.</div>
+              <div class="dietary-note">🌱 vegan · gluten-free</div>
             </div>
           </div>
         </div>
-
-        <!-- Dish 4 -->
-        <div class="swiper-slide">
-          <div class="card h-100">
-            <img src="photos/brooke-lark.jpg" class="card-img-top" alt="Buddha Glow Bowl">
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img src="photos/brooke-lark.jpg" alt="Buddha bowl" onerror="this.src='https://placehold.co/400x280?text=bowl'">
             <div class="card-content">
-              <h3>Buddha Glow Bowl</h3>
-              <p class="price">£9.95</p>
-              <p>Roasted chickpeas, sweet potato & tahini drizzle.</p>
-              <p class="tags">🌱 Vegan | 🌾 Gluten-Free</p>
+              <h3>Golden buddha bowl</h3>
+              <div class="price">£9.95</div>
+              <div class="dish-desc">Chickpeas, sweet potato, turmeric tahini.</div>
+              <div class="dietary-note">🌱 vegan · gluten-free</div>
             </div>
           </div>
         </div>
-
-        <!-- Dish 5 -->
-        <div class="swiper-slide">
-          <div class="card h-100">
-            <img src="photos/cocobols.jpg" class="card-img-top" alt="Tropical Smoothie Bowl">
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img src="photos/cocobols.jpg" alt="Smoothie bowl" onerror="this.src='https://placehold.co/400x280?text=smoothie'">
             <div class="card-content">
-              <h3>Tropical Smoothie Bowl</h3>
-              <p class="price">£6.95</p>
-              <p>Banana, mango, berries & granola.</p>
-              <p class="tags">🌱 Vegan</p>
+              <h3>Tropical smoothie bowl</h3>
+              <div class="price">£6.95</div>
+              <div class="dish-desc">Banana, mango, berries & coconut.</div>
+              <div class="dietary-note">🌱 vegan · naturally sweet</div>
             </div>
           </div>
         </div>
-
-        <!-- Dish 6 -->
-        <div class="swiper-slide">
-          <div class="card h-100">
-            <img src="photos/deryn-macey.jpg" class="card-img-top" alt="Green Energy Salad">
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img src="photos/deryn-macey.jpg" alt="Green salad" onerror="this.src='https://placehold.co/400x280?text=salad'">
             <div class="card-content">
-              <h3>Green Energy Salad</h3>
-              <p class="price">£8.95</p>
-              <p>Spinach, avocado & lemon vinaigrette.</p>
-              <p class="tags">🌱 Vegan | 🌾 Gluten-Free</p>
+              <h3>Garden salad</h3>
+              <div class="price">£8.95</div>
+              <div class="dish-desc">Spinach, avocado, lemon dressing, pepitas.</div>
+              <div class="dietary-note">🌱 vegan · gluten-free</div>
             </div>
           </div>
         </div>
-
-        <!-- Dish 7 -->
-        <div class="swiper-slide">
-          <div class="card h-100">
-            <img src="photos/green-and-great.jpg" class="card-img-top" alt="Green Detox Plate">
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img src="photos/green-and-great.jpg" alt="Detox plate" onerror="this.src='https://placehold.co/400x280?text=greens'">
             <div class="card-content">
-              <h3>Green Detox Plate</h3>
-              <p class="price">£9.50</p>
-              <p>Seasonal greens & herb dressing.</p>
-              <p class="tags">🌱 Vegan | 🌾 Gluten-Free</p>
+              <h3>Seasonal greens plate</h3>
+              <div class="price">£9.50</div>
+              <div class="dish-desc">Steamed greens, herb dressing, pickles.</div>
+              <div class="dietary-note">🌱 vegan · gluten-free</div>
             </div>
           </div>
         </div>
-
-        <!-- Dish 8 -->
-        <div class="swiper-slide">
-          <div class="card h-100">
-            <img src="photos/bowl.jpg" class="card-img-top" alt="Supergrain Bowl">
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img src="photos/bowl.jpg" alt="Supergrain bowl" onerror="this.src='https://placehold.co/400x280?text=grain'">
             <div class="card-content">
-              <h3>Supergrain Bowl</h3>
-              <p class="price">£10.50</p>
-              <p>Rice, lentils & sesame glaze.</p>
-              <p class="tags">🌱 Vegan | 🥛 Soy</p>
+              <h3>Supergrain bowl</h3>
+              <div class="price">£10.50</div>
+              <div class="dish-desc">Black rice, lentils, sesame broccoli.</div>
+              <div class="dietary-note">🌱 vegan · high protein</div>
             </div>
           </div>
         </div>
-
-        <!-- Dish 9 -->
-        <div class="swiper-slide">
-          <div class="card h-100">
-            <img src="photos/carolineh.jpg" class="card-img-top" alt="Vegan Brunch Plate">
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img src="photos/carolineh.jpg" alt="Brunch plate" onerror="this.src='https://placehold.co/400x280?text=brunch'">
             <div class="card-content">
-              <h3>Vegan Brunch Plate</h3>
-              <p class="price">£11.95</p>
-              <p>Tofu scramble & toast.</p>
-              <p class="tags">🌱 Vegan | 🥛 Soy</p>
+              <h3>Vegan brunch plate</h3>
+              <div class="price">£11.95</div>
+              <div class="dish-desc">Tofu scramble, roast tomato, sourdough.</div>
+              <div class="dietary-note">🌱 vegan · soy-free option</div>
             </div>
           </div>
         </div>
-
-      </div>
-      
-      <!-- Swiper Navigation Arrows -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      
-      <!-- Swiper Pagination Dots -->
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</section>
-
-<!-- BRAND ADVERTISEMENT SECTION (Unchanged) -->
-<section class="section brand-ad" id="ads">
-  <div class="container">
-    <h2 class="section-title">Brand Campaign</h2>
-
-    <div class="brand-text">
-      <p>
-        At <strong>GreenLeaf</strong>, we combine delicious plant-based food with a commitment to a healthier planet. 
-        Our meals are prepared using fresh, locally sourced and seasonal ingredients to ensure quality, taste, and sustainability.
-      </p>
-      <p>
-        🌿 <strong>Special Offers:</strong> Student discounts, seasonal deals, and rewards for using eco-friendly packaging.
-      </p>
-      <p>
-        ⚠️ <strong>Allergy Notice:</strong> We clearly label allergens such as gluten, soy, and nuts. 
-        Please inform staff of any allergies before ordering as cross-contact may occur.
-      </p>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <img src="photos/mockup/Greenleaf_mockup.jpg" alt="GreenLeaf Mockup">
-      </div>
-      <div class="card">
-        <img src="photos/mockup/Bagmockup.png" alt="GreenLeaf Bag">
-      </div>
-      <div class="card">
-        <img src="photos/mockup/ADS_board1.png" alt="Advertisement Board 1">
-      </div>
-      <div class="card">
-        <img src="photos/mockup/ADS_board.png" alt="Advertisement Board 2">
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ABOUT SECTION (Unchanged) -->
-<section class="section about" id="about">
-  <div class="container about-grid">
-    <div>
-      <h2>About GreenLeaf</h2>
-      <p>
-        GreenLeaf celebrates plant-based living with sustainable,
-        seasonal ingredients and modern vegan dining in Bristol.
-      </p>
+  <!-- BRAND / STORY SECTION -->
+  <section class="section" id="story">
+    <div class="container-custom brand-story">
+      <h2 class="section-title" style="margin-bottom: 1rem;">A place to gather</h2>
+      <div class="brand-text">
+        <p><strong>GreenLeaf</strong> began with a simple belief: food should nourish both people and the planet. We cook with seasonal vegetables, local grains, and zero-waste intentions. Our little spot in Wapping Wharf is cozy, welcoming, and built around community.</p>
+        <p>Every dish tells the story of Bristol's growers, the changing seasons, and the joy of sharing a good meal. No gimmicks — just flavour, honesty, and warmth.</p>
+        <p style="margin-top: 0.5rem;">🌿 <strong>Student discount 15%</strong> · Bring your own cup & save £1</p>
+      </div>
+      <div class="simple-image-row">
+        <img src="photos/mockup/Greenleaf_mockup.jpg" alt="Restaurant atmosphere" onerror="this.src='https://placehold.co/200x150?text=warmth'">
+        <img src="photos/mockup/Bagmockup.png" alt="Eco tote" onerror="this.src='https://placehold.co/200x150?text=eco'">
+        <img src="photos/mockup/ADS_board.png" alt="Kitchen scene" onerror="this.src='https://placehold.co/200x150?text=kitchen'">
+      </div>
     </div>
-    <div>
-      <img src="photos/mockup/ADS_board.png" alt="GreenLeaf About Image">
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="section about" id="about">
+    <div class="container-custom">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <h2>From our kitchen to your table</h2>
+          <p>We're a small team of cooks, growers, and dreamers who believe that plant-based eating can be joyful, not restrictive. Our recipes evolve with the seasons — expect cozy stews in autumn, vibrant salads in summer.</p>
+          <p>📍 Located at Cargo 2, Wapping Wharf. Just a short walk from the harbour. Come as you are, bring friends, and leave feeling good.</p>
+          <p><strong>Open daily · 12pm – 10pm</strong></p>
+        </div>
+        <div class="col-lg-6">
+          <img class="about-img" src="photos/mockup/Greenleaf_mockup.jpg" alt="Chef preparing food" onerror="this.src='https://placehold.co/600x450?text=kitchen+scene'">
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT SECTION (Unchanged) -->
-<section class="section contact" id="contact">
-  <div class="container">
-    <h2 class="section-title">Join Our Community</h2>
-    <form class="newsletter">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Email" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </div>
-</section>
+  <!-- CONTACT / RESERVATION SECTION -->
+  <section class="section" id="contact">
+    <div class="container-custom contact-section">
+      <h2 class="section-title" style="margin-top: 0;">Reserve a table</h2>
+      <p style="text-align: center; max-width: 500px; margin: 0 auto 1.5rem;">We keep a few tables for walk-ins, but booking ahead never hurts.</p>
+      <form class="newsletter d-flex flex-wrap justify-content-center gap-2" id="reserveForm">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Email address" required>
+        <input type="tel" placeholder="Phone (optional)">
+        <button type="submit">Request a table</button>
+      </form>
+      <div class="contact-details">
+        📍 Wapping Wharf, Bristol BS1 6UN &nbsp;&nbsp;|&nbsp;&nbsp; 📞 0117 912 3456 &nbsp;&nbsp;|&nbsp;&nbsp; ✉️ hello@greenleaf.uk
+      </div>
+    </div>
+  </section>
+</main>
 
-<!-- FOOTER (Unchanged) -->
 <footer>
   <div class="container">
-    <p>© 2026 GreenLeaf</p>
+    <p>GreenLeaf — plant-based kitchen, Bristol. Every day, simple and good.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.75rem;">© 2026 · designed with warmth, for the community</p>
   </div>
 </footer>
 
-<!-- BOOTSTRAP 5 JS (Required for navbar toggle) -->
+<!-- jQuery (required JavaScript framework) -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- SWIPERJS JS (JavaScript Framework for interactive carousel) -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Custom JavaScript with jQuery -->
+<script>
+  // jQuery hover effect on cards (demonstrates jQuery framework usage)
+  $(document).ready(function() {
+    $('.card').hover(
+      function() { $(this).css('transform', 'translateY(-5px)'); },
+      function() { $(this).css('transform', 'translateY(0)'); }
+    );
+    
+    // jQuery smooth scroll for navigation links
+    $('a[href^="#"]').on('click', function(e) {
+      var target = $(this).attr('href');
+      if (target !== '#' && target !== '' && !target.includes('.html')) {
+        e.preventDefault();
+        $('html, body').animate({
+          scrollTop: $(target).offset().top - 70
+        }, 500);
+      }
+    });
+  });
 
-<!-- YOUR CUSTOM SCRIPT -->
-<script src="script.js"></script>
+  // Scroll reveal animation (vanilla JS for Intersection Observer)
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+  sections.forEach(section => observer.observe(section));
+  
+  window.addEventListener('load', () => {
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) section.classList.add('show');
+    });
+  });
 
+  // Reservation form alert
+  const form = document.getElementById('reserveForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Thanks! We'll send a confirmation shortly. See you soon at GreenLeaf.");
+      form.reset();
+    });
+  }
+</script>
 </body>
 </html>

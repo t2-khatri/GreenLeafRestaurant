@@ -2,101 +2,454 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Find GreenLeaf at Wapping Wharf, Bristol. Opening hours and contact information for our plant-based restaurant.">
-  <title>GreenLeaf | Location</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Visit GreenLeaf at Wapping Wharf, Bristol — plant-powered kitchen by the harbour. Find our location, opening hours, and how to get here.">
+  <title>GreenLeaf | Find Us — Harbour Location & Hours</title>
 
-  <!-- BOOTSTRAP 5 CSS (Matches index.html) -->
+  <!-- Bootstrap 5 CSS Framework (required by brief) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Google Fonts (Same as index.html) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --forest: #2A5C3E;
+      --moss: #4A7C59;
+      --cream: #FDF9F2;
+      --sand: #E8E0D5;
+      --warm-gray: #4A4A4A;
+      --soft-black: #2D2A26;
+      --gold-soft: #C9A87C;
+    }
 
-  <!-- Your Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--cream);
+      color: var(--soft-black);
+      line-height: 1.5;
+      padding-top: 76px;
+    }
+
+    h1, h2, h3, .logo-text {
+      font-family: 'Libre Baskerville', serif;
+      font-weight: 400;
+    }
+
+    .container-custom {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      padding: 0.5rem 0;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar-brand img {
+      height: 42px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.4rem;
+      color: var(--forest);
+    }
+
+    .nav-link {
+      color: var(--warm-gray) !important;
+      font-weight: 450;
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: var(--forest) !important;
+    }
+
+    .btn-nav {
+      background: var(--forest);
+      color: white !important;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+    }
+
+    .btn-nav:hover {
+      background: #1e4630;
+      color: white !important;
+    }
+
+    /* Location Hero */
+    .location-hero {
+      background: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('photos/sonny-mauricio.jpg') center/cover no-repeat;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 0 0 32px 32px;
+      margin-bottom: 2.5rem;
+    }
+
+    .location-hero-content {
+      background: rgba(255, 255, 245, 0.88);
+      padding: 2rem 2.5rem;
+      border-radius: 28px;
+      backdrop-filter: blur(3px);
+    }
+
+    .location-hero h1 {
+      font-size: 2.6rem;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+    }
+
+    .location-hero p {
+      font-size: 1.1rem;
+      color: #3a3a35;
+    }
+
+    /* Info Cards */
+    .info-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.8rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f0ebe4;
+      transition: transform 0.2s;
+      height: 100%;
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .info-card h3 {
+      font-size: 1.4rem;
+      color: var(--forest);
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--gold-soft);
+      padding-left: 0.8rem;
+    }
+
+    .hours-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed #ede6dd;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 1rem 0;
+      font-size: 1rem;
+    }
+
+    /* Map Container */
+    .map-container {
+      background: var(--sand);
+      border-radius: 32px;
+      padding: 1rem;
+      margin: 1rem 0 2rem;
+    }
+
+    .map-box {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .map-box iframe {
+      width: 100%;
+      height: 380px;
+      display: block;
+    }
+
+    /* Getting Here */
+    .getting-here {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid #f2ede6;
+    }
+
+    .getting-here h3 {
+      font-size: 1.5rem;
+      color: var(--forest);
+      margin-bottom: 1.2rem;
+      font-weight: 400;
+    }
+
+    .transport-item {
+      background: #faf7f2;
+      padding: 1rem;
+      border-radius: 20px;
+      height: 100%;
+    }
+
+    .transport-item strong {
+      display: block;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    /* CTA */
+    .cta-note {
+      text-align: center;
+      background: #F4F0E9;
+      padding: 2rem;
+      border-radius: 28px;
+      margin: 2rem 0;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--forest);
+      color: var(--forest);
+      padding: 0.6rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--forest);
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--forest);
+      color: #e2dfd7;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 70px;
+      }
+      .location-hero h1 {
+        font-size: 1.8rem;
+      }
+      .location-hero-content {
+        padding: 1.2rem;
+      }
+      .map-box iframe {
+        height: 280px;
+      }
+    }
+
+    /* Scroll reveal */
+    .section {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
 
-<!-- BOOTSTRAP NAVBAR (Identical to index.html - keeps consistency) -->
+<!-- NAVBAR using Bootstrap classes -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="./index.html">
-      <img src="photos/logo/greenleaf_logo.png" alt="GreenLeaf Logo" height="45" class="me-2">
+    <a class="navbar-brand" href="index.html">
+      <img src="photos/logo/greenleaf_logo.png" alt="GreenLeaf Logo" onerror="this.src='https://placehold.co/50x50?text=GL'">
       <span class="logo-text">GreenLeaf</span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="./index.html#recipes">Menu</a></li>
-        <li class="nav-item"><a class="nav-link" href="./index.html#ads">Brand</a></li>
-        <li class="nav-item"><a class="nav-link" href="./index.html#about">About</a></li>
-        <li class="nav-item"><a class="nav-link active" href="map.html">Location</a></li>
-        <li class="nav-item"><a class="nav-link btn-nav" href="./index.html#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#recipes">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#story">Our Story</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="map.html" style="color: var(--forest); font-weight: 500;">Visit</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav" href="index.html#contact">Reserve</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- LOCATION SECTION -->
-<section class="section location-page">
-  <div class="container">
-    <h2 class="section-title">Find Us</h2>
-
-    <p class="text-center mb-4">
-      Wapping Wharf, Bristol BS1 6UN
-    </p>
-
-    <!-- Google Maps Embed -->
-    <div class="map-box mb-5">
-      <iframe 
-        src="https://www.google.com/maps?q=Wapping+Wharf,+Bristol&output=embed"
-        width="100%" 
-        height="400"
-        style="border:0; border-radius: 10px;" 
-        allowfullscreen=""
-        loading="lazy">
-      </iframe>
-    </div>
-
-    <!-- Opening Hours & Contact - Using Bootstrap Grid -->
-    <div class="row text-center text-md-start">
-      
-      <div class="col-md-6 mb-4 mb-md-0">
-        <div class="p-4 bg-white rounded-3 shadow-sm h-100">
-          <h3 class="mb-3" style="color: var(--green);">Opening Hours</h3>
-          <p class="mb-2">Mon–Thu: 12:00 – 22:00</p>
-          <p class="mb-2">Fri–Sat: 12:00 – 23:00</p>
-          <p class="mb-0">Sun: 11:00 – 21:00</p>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="p-4 bg-white rounded-3 shadow-sm h-100">
-          <h3 class="mb-3" style="color: var(--green);">Contact</h3>
-          <p class="mb-2">📞 <a href="tel:+441179123456" class="text-decoration-none" style="color: var(--dark);">+44 117 912 3456</a></p>
-          <p class="mb-0">✉️ <a href="mailto:hello@greenleaf.co.uk" class="text-decoration-none" style="color: var(--dark);">hello@greenleaf.co.uk</a></p>
-        </div>
-      </div>
-
+<main>
+  <!-- Hero -->
+  <div class="location-hero">
+    <div class="location-hero-content">
+      <h1>Come say hello</h1>
+      <p>We're by the water, in the heart of Wapping Wharf</p>
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
+  <div class="container-custom">
+    <!-- Info Cards using Bootstrap grid -->
+    <div class="row g-4 section" id="info-section">
+      <div class="col-md-6 col-lg-4">
+        <div class="info-card">
+          <h3>Opening hours</h3>
+          <ul class="hours-list">
+            <li><span>Monday – Thursday</span> <span>12:00 – 22:00</span></li>
+            <li><span>Friday – Saturday</span> <span>12:00 – 23:00</span></li>
+            <li><span>Sunday</span> <span>11:00 – 21:00</span></li>
+          </ul>
+          <p style="margin-top: 1rem; font-size: 0.85rem; color: #7e7a6e;">Last orders 30 mins before close ✨</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="info-card">
+          <h3>Get in touch</h3>
+          <div class="contact-line">📞 <span>0117 912 3456</span></div>
+          <div class="contact-line">✉️ <span>hello@greenleaf.uk</span></div>
+          <div class="contact-line">📍 <span>Unit 4, Cargo 2, Wapping Wharf, Bristol BS1 6UN</span></div>
+          <p style="margin-top: 1rem; font-size: 0.85rem;">We reply within a day — or just walk in, we'll find you a spot.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="info-card">
+          <h3>Good to know</h3>
+          <p>🌿 Dog-friendly outdoor seating</p>
+          <p>♿ Wheelchair accessible</p>
+          <p>🚲 Bike parking nearby</p>
+          <p>🌱 All dishes 100% plant-based</p>
+          <p style="margin-top: 0.8rem;">💚 <strong>Student discount 15%</strong> (Mon–Thu, show ID)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="section map-container">
+      <div class="map-box">
+        <iframe 
+          src="https://www.google.com/maps?q=Wapping+Wharf,+Bristol&output=embed"
+          width="100%" 
+          height="380"
+          style="border:0;" 
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+      <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #6b685e;">📍 We're in the colourful Cargo containers — look for the green awning.</p>
+    </div>
+
+    <!-- Getting Here -->
+    <div class="getting-here section">
+      <h3>How to find us</h3>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-3">
+          <div class="transport-item">
+            <strong>🚶 On foot</strong>
+            <span>5-min walk from Millennium Square, follow the harbourside towards the containers.</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="transport-item">
+            <strong>🚲 By bike</strong>
+            <span>Bristol's cycling routes connect to Wapping Wharf. Bike stands just outside.</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="transport-item">
+            <strong>🚍 Bus & train</strong>
+            <span>Bristol Temple Meads (20 min walk) or buses 3, 4, 72 to Canon Street.</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="transport-item">
+            <strong>🚗 Parking</strong>
+            <span>Nearby galleries & NCP Prince Street (5 min). We encourage walking or cycling when possible.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-note section">
+      <p style="font-size: 1.1rem; margin-bottom: 0.3rem;">✨ Planning a visit?</p>
+      <p>No reservation needed for small groups — but you can always drop us a message or just walk by.</p>
+      <a href="index.html#contact" class="btn-outline">Request a table →</a>
+    </div>
+  </div>
+</main>
+
 <footer>
   <div class="container">
-    <p>© 2026 GreenLeaf</p>
+    <p>GreenLeaf — plant-powered kitchen, Bristol. Every day, simple and good.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.75rem;">Wapping Wharf · since 2022 · come as you are</p>
   </div>
 </footer>
 
-<!-- BOOTSTRAP 5 JS (Required for navbar toggle on mobile) -->
+<!-- jQuery (required JavaScript framework) -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Your Custom Script (Keeps fade-in animations) -->
-<script src="script.js"></script>
+<!-- Custom JavaScript with jQuery -->
+<script>
+  // jQuery hover effect on info cards (demonstrates jQuery framework usage)
+  $(document).ready(function() {
+    $('.info-card').hover(
+      function() { $(this).css('transform', 'translateY(-4px)'); },
+      function() { $(this).css('transform', 'translateY(0)'); }
+    );
+    
+    $('.transport-item').hover(
+      function() { $(this).css('transform', 'translateY(-3px)'); },
+      function() { $(this).css('transform', 'translateY(0)'); }
+    );
+  });
 
+  // Scroll reveal animation (vanilla JS for Intersection Observer)
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -10px 0px" });
+  
+  sections.forEach(section => observer.observe(section));
+  
+  window.addEventListener('load', () => {
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 60) section.classList.add('show');
+    });
+  });
+</script>
 </body>
 </html>

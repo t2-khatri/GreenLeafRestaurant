@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GreenLeaf - Modern plant-based dining in Bristol. Sustainable, seasonal and 100% vegan.">
+  <title>GreenLeaf | Plant-Powered Living</title>
+
+  <!-- BOOTSTRAP 5 CSS (CSS Framework Requirement) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- SWIPERJS CSS (JavaScript Framework Requirement) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Your Custom CSS (overrides Bootstrap where needed) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- BOOTSTRAP NAVBAR (Replaces custom navbar - fully responsive) -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="photos/logo/greenleaf_logo.png" alt="GreenLeaf Logo" height="45" class="me-2">
+      <span class="logo-text">GreenLeaf</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#recipes">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ads">Brand</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="map.html">Location</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION (Unchanged - keeps your design) -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Nourish Your Body,<br>Respect the Planet</h1>
+    <p>Delicious plant-based recipes and sustainable living inspiration.</p>
+    <a href="#recipes" class="btn-primary">Explore Menu</a>
+  </div>
+</section>
+
+<!-- MENU SECTION WITH SWIPERJS CAROUSEL (Interactive JS Framework) -->
+<section class="section" id="recipes">
+  <div class="container">
+    <h2 class="section-title">Signature Dishes</h2>
+
+    <div class="allergy-legend">
+      <p><strong>Dietary Key:</strong> 🌱 Vegan | 🌾 Gluten-Free | 🥛 Soy</p>
+    </div>
+
+    <!-- SwiperJS Carousel - Interactive Menu Display -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        
+        <!-- Dish 1 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="photos/anna-pelzer.jpg" class="card-img-top" alt="Avocado Toast Deluxe">
+            <div class="card-content">
+              <h3>Avocado Toast Deluxe</h3>
+              <p class="price">£8.50</p>
+              <p>Fresh sourdough, smashed avocado, radish & microgreens.</p>
+              <p class="tags">🌱 Vegan | 🥛 Soy</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dish 2 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="photos/ella-olsson.jpg" class="card-img-top" alt="Rainbow Sandwich">
+            <div class="card-content">
+              <h3>Rainbow Sandwich</h3>
+              <p class="price">£7.95</p>
+              <p>Hummus, roasted vegetables & fresh herbs.</p>
+              <p class="tags">🌱 Vegan | 🌾 Gluten-Free Option</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dish 3 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="photos/sonny-mauricio.jpg" class="card-img-top" alt="Power Bowl">
+            <div class="card-content">
+              <h3>Power Bowl</h3>
+              <p class="price">£10.95</p>
+              <p>Quinoa, greens, tahini dressing & seasonal vegetables.</p>
+              <p class="tags">🌱 Vegan | 🌾 Gluten-Free</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dish 4 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="photos/brooke-lark.jpg" class="card-img-top" alt="Buddha Glow Bowl">
+            <div class="card-content">
+              <h3>Buddha Glow Bowl</h3>
+              <p class="price">£9.95</p>
+              <p>Roasted chickpeas, sweet potato & tahini drizzle.</p>
+              <p class="tags">🌱 Vegan | 🌾 Gluten-Free</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dish 5 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="photos/cocobols.jpg" class="card-img-top" alt="Tropical Smoothie Bowl">
+            <div class="card-content">
+              <h3>Tropical Smoothie Bowl</h3>
+              <p class="price">£6.95</p>
+              <p>Banana, mango, berries & granola.</p>
+              <p class="tags">🌱 Vegan</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dish 6 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="photos/deryn-macey.jpg" class="card-img-top" alt="Green Energy Salad">
+            <div class="card-content">
+              <h3>Green Energy Salad</h3>
+              <p class="price">£8.95</p>
+              <p>Spinach, avocado & lemon vinaigrette.</p>
+              <p class="tags">🌱 Vegan | 🌾 Gluten-Free</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dish 7 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="photos/green-and-great.jpg" class="card-img-top" alt="Green Detox Plate">
+            <div class="card-content">
+              <h3>Green Detox Plate</h3>
+              <p class="price">£9.50</p>
+              <p>Seasonal greens & herb dressing.</p>
+              <p class="tags">🌱 Vegan | 🌾 Gluten-Free</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dish 8 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="photos/bowl.jpg" class="card-img-top" alt="Supergrain Bowl">
+            <div class="card-content">
+              <h3>Supergrain Bowl</h3>
+              <p class="price">£10.50</p>
+              <p>Rice, lentils & sesame glaze.</p>
+              <p class="tags">🌱 Vegan | 🥛 Soy</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dish 9 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="photos/carolineh.jpg" class="card-img-top" alt="Vegan Brunch Plate">
+            <div class="card-content">
+              <h3>Vegan Brunch Plate</h3>
+              <p class="price">£11.95</p>
+              <p>Tofu scramble & toast.</p>
+              <p class="tags">🌱 Vegan | 🥛 Soy</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- Swiper Navigation Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      
+      <!-- Swiper Pagination Dots -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND ADVERTISEMENT SECTION (Unchanged) -->
+<section class="section brand-ad" id="ads">
+  <div class="container">
+    <h2 class="section-title">Brand Campaign</h2>
+
+    <div class="brand-text">
+      <p>
+        At <strong>GreenLeaf</strong>, we combine delicious plant-based food with a commitment to a healthier planet. 
+        Our meals are prepared using fresh, locally sourced and seasonal ingredients to ensure quality, taste, and sustainability.
+      </p>
+      <p>
+        🌿 <strong>Special Offers:</strong> Student discounts, seasonal deals, and rewards for using eco-friendly packaging.
+      </p>
+      <p>
+        ⚠️ <strong>Allergy Notice:</strong> We clearly label allergens such as gluten, soy, and nuts. 
+        Please inform staff of any allergies before ordering as cross-contact may occur.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <img src="photos/mockup/Greenleaf_mockup.jpg" alt="GreenLeaf Mockup">
+      </div>
+      <div class="card">
+        <img src="photos/mockup/Bagmockup.png" alt="GreenLeaf Bag">
+      </div>
+      <div class="card">
+        <img src="photos/mockup/ADS_board1.png" alt="Advertisement Board 1">
+      </div>
+      <div class="card">
+        <img src="photos/mockup/ADS_board.png" alt="Advertisement Board 2">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION (Unchanged) -->
+<section class="section about" id="about">
+  <div class="container about-grid">
+    <div>
+      <h2>About GreenLeaf</h2>
+      <p>
+        GreenLeaf celebrates plant-based living with sustainable,
+        seasonal ingredients and modern vegan dining in Bristol.
+      </p>
+    </div>
+    <div>
+      <img src="photos/mockup/ADS_board.png" alt="GreenLeaf About Image">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION (Unchanged) -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">Join Our Community</h2>
+    <form class="newsletter">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER (Unchanged) -->
+<footer>
+  <div class="container">
+    <p>© 2026 GreenLeaf</p>
+  </div>
+</footer>
+
+<!-- BOOTSTRAP 5 JS (Required for navbar toggle) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- SWIPERJS JS (JavaScript Framework for interactive carousel) -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- YOUR CUSTOM SCRIPT -->
+<script src="script.js"></script>
+
+</body>
+</html>

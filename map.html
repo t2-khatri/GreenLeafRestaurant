@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find GreenLeaf at Wapping Wharf, Bristol. Opening hours and contact information for our plant-based restaurant.">
+  <title>GreenLeaf | Location</title>
+
+  <!-- BOOTSTRAP 5 CSS (Matches index.html) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts (Same as index.html) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Your Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- BOOTSTRAP NAVBAR (Identical to index.html - keeps consistency) -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="./index.html">
+      <img src="photos/logo/greenleaf_logo.png" alt="GreenLeaf Logo" height="45" class="me-2">
+      <span class="logo-text">GreenLeaf</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="./index.html#recipes">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="./index.html#ads">Brand</a></li>
+        <li class="nav-item"><a class="nav-link" href="./index.html#about">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="map.html">Location</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav" href="./index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- LOCATION SECTION -->
+<section class="section location-page">
+  <div class="container">
+    <h2 class="section-title">Find Us</h2>
+
+    <p class="text-center mb-4">
+      Wapping Wharf, Bristol BS1 6UN
+    </p>
+
+    <!-- Google Maps Embed -->
+    <div class="map-box mb-5">
+      <iframe 
+        src="https://www.google.com/maps?q=Wapping+Wharf,+Bristol&output=embed"
+        width="100%" 
+        height="400"
+        style="border:0; border-radius: 10px;" 
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <!-- Opening Hours & Contact - Using Bootstrap Grid -->
+    <div class="row text-center text-md-start">
+      
+      <div class="col-md-6 mb-4 mb-md-0">
+        <div class="p-4 bg-white rounded-3 shadow-sm h-100">
+          <h3 class="mb-3" style="color: var(--green);">Opening Hours</h3>
+          <p class="mb-2">Mon–Thu: 12:00 – 22:00</p>
+          <p class="mb-2">Fri–Sat: 12:00 – 23:00</p>
+          <p class="mb-0">Sun: 11:00 – 21:00</p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="p-4 bg-white rounded-3 shadow-sm h-100">
+          <h3 class="mb-3" style="color: var(--green);">Contact</h3>
+          <p class="mb-2">📞 <a href="tel:+441179123456" class="text-decoration-none" style="color: var(--dark);">+44 117 912 3456</a></p>
+          <p class="mb-0">✉️ <a href="mailto:hello@greenleaf.co.uk" class="text-decoration-none" style="color: var(--dark);">hello@greenleaf.co.uk</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2026 GreenLeaf</p>
+  </div>
+</footer>
+
+<!-- BOOTSTRAP 5 JS (Required for navbar toggle on mobile) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Your Custom Script (Keeps fade-in animations) -->
+<script src="script.js"></script>
+
+</body>
+</html>
